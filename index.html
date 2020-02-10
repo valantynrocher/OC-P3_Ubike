@@ -1,0 +1,439 @@
+<!-- Carte interractive de location de vélo
+    Parcours Développeur Web Junior (OpenClassrooms)
+    Projet 3 - Valentin rocher -->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Ubike - Vélos libre service à Nantes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!-- Fonteawesome CDN-->
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- Librairie Leaflet CDN-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+
+        <!-- Raleway Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,900&display=swap" rel="stylesheet">
+
+        <!-- Permanent Marker Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet"> 
+
+        <!-- Gloria Hallelujah Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet"> 
+
+        <link rel="icon" type="image/png" href="#" />
+        <link rel="stylesheet" href="./css/style.css">
+
+
+    </head>
+
+    <body>
+        <div class="site" id="top">
+
+            <header>
+
+                <div class="header-top">
+                    <div class="logo--header-top">
+                        <a href="index.html" class="logo__text">Ubike</a>
+                    </div>
+
+                    <div id="toggle-menu" class="toggle-mobile-menu no-show">
+                        MENU
+                        <a href="#" id="mobileMenuLink" class="toggle-mobile-menu__icon"><span id="mobileMenuIcon" class="fa fa-bars" aria-hidden="true"></span></a>
+                    </div>
+
+                    <nav id="navigation-menu" class="desktop-navigation">
+                        <a href="index.html" id="home-link"><span></span>Accueil</a>
+                        <a href="#presentation" id="presentation-link"><span></span>Comment ça marche ?</a>
+                        <a href="#reserver" id="booking-link"><span></span>Réserver un vélo</a>
+                        <a href="#ma-reservation" id="confirm-link"><span></span>Ma réservation</a>
+                    </nav>
+
+                </div>
+
+                <div class="header-main">
+
+                    <div class="header-main__content">
+                        <div class="bienvenue">
+                            <p>Bienvenue sur</p>
+                        </div>
+                        <div class="logo logo--header-main">
+                            <img src="./images/ubike.png" alt="Ubike logo" class="logo__img">
+                            <h1 class="logo__text">Ubike</h1>
+                        </div>
+                        <div class="baseline">
+                            <p>Votre vélo en libre-service à Nantes</p>
+                        </div>
+                        <div class="go-down" id="scroll-down"><span class="fa fa-chevron-down" aria-hidden="true"></span></div>
+                    </div>
+
+                </div>    
+
+            </header>
+
+            <div class="main">
+            
+                <section id="presentation">
+                    <div class="section-padding">
+                        
+                        <div class="section-title">
+                            <h2>Comment ça marche ?</h2>
+                            <p>Nous vous guidons pas à pas pour faire votre réservation</p>
+                        </div>
+
+                        <div id="slider" class="slider-area">
+                            <!-- les div commentées sont crées et insérées via javascript -->
+                            <!-- <div class="slider"> -->
+                                <!-- <div class="slider-container"> -->
+
+                                    <!-- <div class="slider__item"> -->
+                                        <div class="slide slide__image slide--intro" id="slide1"></div>
+                                    <!-- </div>  -->
+
+                                    <!-- <div class="slider__item"> -->
+                                        <div class="slide slide__text slide--intro">
+                                            <div class="slide__title">
+                                                Bienvenue sur votre application Ubike !
+                                            </div>
+                                            <div class="slide__description">
+                                                <p> Pour vous déplacer sur Nantes et sa métropole, choisissez une solution souple et rapide grâce à Ubike.
+                                                En quelques clics, trouvez votre vélo et déplacez vous librement dans la ville !</p>
+                                                <p>Voici 4 étapes simples pour réserver un vélo sur votre application Ubike !</p>
+                                                <p>Suivez le guide !</p>
+                                            </div>
+                                        </div>
+                                    <!-- </div>  -->
+
+                                    <!-- <div class="slider__item"> -->
+                                        <div class="slide slide__image slide--step1" id="slide2"></div>
+                                    <!-- </div>  -->
+
+                                    <!-- <div class="slider__item"> -->
+                                        <div class="slide slide__text slide--step1">
+                                            <div class="slide__title">
+                                                1. Choisissez votre station
+                                            </div>
+                                            <div class="slide__description">
+                                                <p>Grâce à notre carte interractive, vous pourre visualiser en un coup d'oeil
+                                                l'emplacement de toutes les stations. Vous pourrez voir si celle-ci sont ouvertes
+                                                ou bien fermées grâce aux icônes personnalisées.</p>
+                                                <p>Pour passer à l'étape suivante, cliquez sur la station de votre choix.</p>
+                                            </div>
+                                        </div>
+                                    <!-- </div>  -->
+
+                                    <!-- <div class="slider__item"> -->
+                                        <div class="slide slide__image slide--step2" id="slide3"></div>
+                                    <!-- </div>  -->
+
+                                    <!-- <div class="slider__item"> -->
+                                        <div class="slide slide__text slide__text--white slide--step2">
+                                            <div class="slide__title">
+                                                2. Consultez la disponibilité
+                                            </div>
+                                            <div class="slide__description">
+                                                <p>Au clic sur une station, les détails de celle-ci s'affichent dans le panneau latéral.
+                                                Vous pourrez alors voir l'addresse de la station ainsi que ses disponibilités :
+                                                combien y a-t-il de places disponibles et combien reste-t-il de vélo.
+                                                </p>
+                                                <p>Pour passer à l'étape suivante, cliquez sur "Je réserve".</p>
+                                            </div>
+                                        </div>
+                                    <!-- </div>  -->
+                                    
+
+                                    <!-- <div class="slider__item"> -->
+                                        <div class="slide slide__image slide--step3" id="slide4"></div>
+                                    <!-- </div>  -->
+
+                                    <!-- <div class="slider__item"> -->
+                                        <div class="slide slide__text slide--step3">
+                                            <div class="slide__title">
+                                                3. Complétez votre réservation
+                                            </div>
+                                            <div class="slide__description">
+                                                <p>Pour effectuer votre réservation, remplissez les champs et signez dans le cadre
+                                                prévu à cet effet. Pour faciliter vos réservations d'une fois sur l'autre, votre
+                                                nom et prénom sont mémorisés par votre navigateur préféré. Si vous souhaitez
+                                                effacer les informations saisies, cliquez sur effacer.</p>
+                                                <p>Toutes vos informations sont saisies ? Pour finaliser, cliquez sur "Valider".</p>
+                                            </div>
+                                        </div>
+                                    <!-- </div>  -->
+
+                                    <!-- <div class="slider__item"> -->
+                                        <div class="slide slide__image slide--step4" id="slide5"></div>
+                                    <!-- </div>  -->
+
+                                    <!-- <div class="slider__item"> -->
+                                        <div class="slide slide__text slide__text--white slide--step4">
+                                            <div class="slide__title">
+                                                4. Visualisez la confirmation
+                                            </div>
+                                            <div class="slide__description">
+                                                <p>Félicitation, votre réservation est confirmée ! Un message reprenant votre nom et 
+                                                Prénom ainsi que le nom de la station s'affiche en bas de page. Votre réservation expire
+                                                au bout de 20 minutes ou bien dès lors que vous actualisez votre page.</p>
+                                                <p>Il ne vous reste plus qu'à rouler et profiter de votre Ubike. Soyez prudent !</p>
+                                            </div>
+                                        </div>
+                                    <!-- </div>  -->
+
+                                <!-- </div>  -->
+
+                                <!-- <div class="slider__prev"></div> -->
+                                <!-- <div class="slider__next"></div> -->
+
+                            <!-- </div>  -->
+                        </div>
+
+                        <div class="slider__controler">
+                            <div class="controler__container">
+                                <div class="pause">
+                                    <div id="pause__button" class="pause__button"></div>
+                                </div>
+                                <div class="play">
+                                    <div id="play__button" class="play__button"></div>
+                                </div>
+                                <div id="slider__pagination">
+                                    <!-- une div.slider__pagination__button est générée via javascript pour chaque slide -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+
+                <section id="reserver">
+                    <div class="section-padding">
+                        
+                        <div class="section-title">
+                            <h2>Réserver un vélo</h2>
+                            <p>Consultez les disponibilités par station et effectuez votre réservation</p>
+                        </div>
+
+                        <div class="booking-area">
+                            <div class="map-area">
+                                <div id="mapStations"></div>
+                            </div>
+
+                            <div class="station-area">
+                                <!--Toujours visible-->
+                                <div class="station-area__title">
+                                    <!-- Modifier en "Réserver" au clic sur le bouton "Je réserve" -->
+                                    <h3 id="station-area__title">Consulter</h3>
+                                    <p>Sélectionnez une station sur la carte</p>
+                                    <span class="fa fa-caret-down" aria-hidden="true"></span>
+                                </div>
+                                
+                                <div id="info-station" class="station-area__infos">
+                                    <table class="table table-striped">
+                                        <!-- ligne en tête -->
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Détails de la station</th>
+                                            </tr>
+                                        </thead>
+                                        <!-- corps tableau -->
+                                        <tbody>
+                                            <!-- ligne Nom -->
+                                            <tr>
+                                                <!-- Col. gauche -->
+                                                <td class="table-col-left">Nom :</td>
+                                                <!-- Col. droite -->
+                                                <td id="name" class="table-col-right"></td>
+                                            </tr>
+                                            <!-- ligne Adresse -->
+                                            <tr>
+                                                <!-- Col. gauche -->
+                                                <td class="table-col-left">Adresse :</td>
+                                                <!-- Col. droite -->
+                                                <td id="address" class="table-col-right"></td>
+                                            </tr>
+                                            <!-- ligne Statut -->
+                                            <tr>
+                                                <!-- Col. gauche -->
+                                                <td class="table-col-left">Statut :</td>
+                                                <!-- Col. droite -->
+                                                <td class="statut table-col-right"><span id="statut" class="background-info"></span></td>
+                                            </tr>
+                                            <!-- ligne Parkings -->
+                                            <tr>
+                                                <!-- Col. gauche -->
+                                                <td class="table-col-left">Places :</td>
+                                                <!-- Col. droite -->
+                                                <td class="table-col-right"><span id="parks" class="background-info"></span></td>
+                                            </tr>
+                                            <!-- ligne Vélos -->
+                                            <tr>
+                                                <!-- Col. gauche -->
+                                                <td class="table-col-left">Vélos :</td>
+                                                <!-- Col. droite -->
+                                                <td class="table-col-right"><span id="bikes" class="background-info"></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <button type="submit" id="booking-btn" class="button__type button__type--book no-show">Je réserve <span class="fa fa-arrow-circle-right"></span></button>
+                                    
+                                </div>
+
+                                <!--Masqué par défaut-->
+                                <div id="booking-station" class="station-area__booking no-show">
+                                    <table class="table table-striped">
+                                        <!-- ligne en tête -->
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Votre réservation
+                                                    <button id="closed-panel" class="close-button">
+                                                        <span>x</span>
+                                                    </button>
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <!-- corps tableau -->
+                                        <tbody>
+                                            <!-- ligne info station courante -->
+                                            <tr>
+                                                <!-- Col. gauche -->
+                                                <td class="table-col-left">Station :</td>
+                                                <!-- Col. droite -->
+                                                <td id="current-station" class="table-col-right"></td>
+                                            </tr>
+                                            <!-- ligne info résa -->
+                                            <tr>
+                                                <td class="booking-message" colspan="2">Saisissez votre nom et prénom, signez puis validez. Vous pouvez effacer votre réservation et recommencer.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="booking-form">
+                                        <p>
+                                            <label for="user-last-name">Nom</label>
+                                            <input id="user-last-name" type="text" placeholder="Votre nom">
+                                        </p>
+                                        <p>
+                                            <label for="user-first-name">Prénom</label>
+                                            <input id="user-first-name" type="text" placeholder="Votre prénom">
+                                        </p>
+                                        
+                                        <!-- Champ Signature -->
+                                        <canvas id="signature" width="350" height="150">
+                                            <p>Désolé, votre navigateur ne supporte pas Canvas. Tentez de le mettre à jour</p>
+                                        </canvas>
+
+                                        <!-- Boutons -->
+                                        <div class="booking-buttons">
+                                            <input type="submit" id="delete-firm" class="button__type button__type--delete" value="Effacer">
+                                            <input type="submit" id="confirm-booking" class="button__type button__type--validate" value="Valider">
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <section id="ma-reservation">
+                    <div class="section-padding">
+
+                        <div class="section-title">
+                            <h2>Ma réservation</h2>
+                            <p>Les informations relatives à votre réservation s'affichent ci-dessous une fois votre signature validée</p>
+                        </div>
+
+                        <div class="timer-area">
+                            <div id="initialMessage">
+                                <p>Vous n'avez aucune réservation en cours</p>
+                                <p>Vous vous demandez comment réserver un vélo ? <a href="#presentation" id="howToBook">Cliquez ici !</a></p>
+                                <p> Vous souhaitez voir la carte des stations et réserver ? <a href="#reserver" id="seeTheMap">Cliquez ici !</a></p>
+                            </div>
+                            <p id="timerMessage" class="no-show">
+                                Bonjour <span id="timerUser"></span> !<br>
+                                Votre réservation pour 1 vélo à la station <span id="timerStation"></span> est en cours. <br>
+                                Elle prendra fin dans <span id="timerMinutes" class="timer"></span> minutes et <span id="timerSeconds" class="timer"></span> secondes.
+                            </p>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <footer>
+
+                <div class="footer__widgets">
+
+                    <div class="footer__item">
+                        <div class="logo logo--footer">
+                            <img src="./images/ubike-white.png" alt="Ubike logo" class="logo__img logo__img--footer">
+                            <h1 class="logo__text logo__text--footer">Ubike</h1>
+                        </div>
+                    </div>
+
+                    <div class="footer__item account">
+                        <div class="sign-up">
+                            <button class="button__type button__type--signup" id="signUp">S'inscrire</button>
+                        </div>
+                        <div class="sign-in">
+                            <p>Déjà inscrit ?</p>
+                            <button class="button__type button__type--signin" id="signIn">Se connecter</button>
+                        </div>
+                    </div>
+
+                    <div class="footer__item external-links">
+                        <ul>
+                            <li><a href="http://www.cyclocity.com/Le-Mediateur2/Le-Mediateur/La-mission-de-mediation" target="_blank">Le médiateur</a></li>
+                            <li><a href="#" target="blank">Restez connectés</a></li>
+                            <li><a href="https://developer.jcdecaux.com/files/Open-Licence-fr.pdf" target="blank">Licence ouverte JCDecaux</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__item internal-links">
+                        <ul>
+                            <li><a href="index.html"><span></span>Accueil</a></li>
+                            <li><a href="#presentation"><span></span>Comment ça marche ?</a></li>
+                            <li><a href="#reserver"><span></span>Réserver un vélo</a></li>
+                            <li><a href="#ma-reservation"><span></span>Ma réservation</a></li>
+                            <li><a href="#">Mentions légales</a></li>
+                            <li><a href="#">Conditions générales d'utilisation</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="footer__mentions">
+                    <p>Application réalisée par <a href="https://www.linkedin.com/in/valentin-rocher-8644b8115/" target="_blank">Valentin Rocher</a>. ©2020 Tous droits réservés.</p>
+                </div>
+
+            </footer>
+
+        </div>
+
+        <!-- Lancement des scripts -->
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+        <script src="./js/scroller.js"></script>
+        <script src="./js/timer.js"></script>
+        <script src="./js/canvas.js"></script>
+        <script src="./js/form.js"></script>
+        <script src="./js/station.js"></script>
+        <script src="./js/ajax.js"></script>
+        <script src="./js/map.js"></script>
+        <script src="./js/slider.js"></script>
+        <script src="./js/menu.js"></script>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
