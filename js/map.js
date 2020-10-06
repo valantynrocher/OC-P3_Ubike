@@ -3,12 +3,12 @@ class Map {
      * 
      * @param {HTMLElement} id : contenant html de la map
      * @param {Array} position : lattitude et longitude pour l'affichage de la carte
-     * @param {*} zoom 
-     * @param {*} layer : calque de rendu
-     * @param {*} style : style de carte personnalisé Mapbox
-     * @param {*} accessToken : clé d'accès du service Mapbox
-     * @param {*} attribution 
-     * @param {*} decauxApi 
+     * @param {Number} zoom 
+     * @param {String} layer : calque de rendu
+     * @param {String} style : style de carte personnalisé Mapbox
+     * @param {String} accessToken : clé d'accès du service Mapbox
+     * @param {String} attribution 
+     * @param {String} decauxApi 
      */
     constructor(id, position, zoom, layer, style, accessToken, attribution, decauxApi) {
         // DOM
